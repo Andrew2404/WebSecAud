@@ -1,0 +1,13 @@
+# Keep completed audits and runtime evidence out of the generic public package.
+__pycache__/
+*.pyc
+node_modules/
+.env
+.env.*
+audit-record*.json
+security-audit-record*.json
+website-security-audit-*.json
+audit-evidence/
+private-audits/
+*.pem
+*.key
