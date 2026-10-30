@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "exampleOnly": false,
+  "gate": {
+    "prompt": "Are you ready to get hacked?",
+    "decision": "Pending",
+    "decidedAt": null,
+    "decidedBy": ""
+  },
+  "scopeApproved": false,
+  "scope": {
+    "offlineReviewAuthorized": false,
+    "project": "",
+    "releaseArtifact": "",
+    "catalogVersion": "",
+    "environment": "",
+    "authorizationReference": "",
+    "approvedBy": "",
+    "approvedAt": null,
+    "validFrom": null,
+    "validUntil": null,
+    "targets": [],
+    "testAccounts": [],
+    "allowedMethods": [],
+    "excludedTargets": [],
+    "excludedMethods": [],
+    "thirdPartyPolicy": "Exclude third-party traffic unless separately identified and authorized; use local integration sinks by default.",
+    "syntheticDataPlan": "",
+    "evidenceLocation": "",
+    "stopConditions": [],
+    "emergencyContact": "",
+    "cleanupPlan": "",
+    "loadTestApproval": {
+      "approved": false,
+      "reference": "",
+      "approvedBy": "",
+      "approvedAt": null,
+      "healthStopConditions": []
+    },
+    "backups": {
+      "required": false,
+      "rationale": "",
+      "verifiedAt": null,
+      "restorePlan": "",
+      "owner": ""
+    }
+  },
+  "globalBudget": {
+    "maxRequests": 0,
+    "maxRequestsPerSecond": 0,
+    "maxConcurrency": 0,
+    "maxDurationSeconds": 0,
+    "maxRequestBytes": 0,
+    "maxResponseBytes": 0,
+    "maxExternalCost": 0
+  },
+  "coordination": {
+    "singleWriter": "",
+    "revision": 0,
+    "startedAt": null,
+    "deadlineAt": null,
+    "usedRequests": 0,
+    "activeLeases": [],
+    "leaseHistory": [],
+    "stopRequested": false,
+    "stopReason": "",
+    "lastUpdatedAt": null
+  },
+  "tests": []
+}

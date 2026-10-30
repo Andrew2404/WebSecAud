@@ -1,0 +1,6 @@
+// Synthetic review fixture; not an executable app or a real audit finding.
+function returnPage(request) {
+  // This deliberately unsafe example trusts a client-controlled return visit.
+  orders.markPaid(request.query.orderId);
+  return "Thank you";
+}

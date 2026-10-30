@@ -1,0 +1,6 @@
+interface:
+  display_name: "Website Security Audit"
+  short_description: "Evidence-based checks before website release"
+  default_prompt: "Use $website-security-audit to review this release within the authorized scope and report evidence, blockers, fixes and retests."
+policy:
+  allow_implicit_invocation: true

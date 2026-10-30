@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "exampleOnly": true,
+  "gate": {
+    "prompt": "Are you ready to get hacked?",
+    "decision": "No",
+    "decidedAt": "2026-10-29T12:00:00Z",
+    "decidedBy": "Example-only reviewer"
+  },
+  "scopeApproved": false,
+  "scope": {
+    "offlineReviewAuthorized": true,
+    "project": "Synthetic fixture teaching example",
+    "releaseArtifact": "examples/unsafe-checkout.txt",
+    "catalogVersion": "1.1.0",
+    "environment": "offline fixture",
+    "authorizationReference": "Example-only offline inspection; no real testing authority",
+    "approvedBy": "",
+    "approvedAt": null,
+    "validFrom": null,
+    "validUntil": null,
+    "targets": [],
+    "testAccounts": [],
+    "allowedMethods": [],
+    "excludedTargets": [],
+    "excludedMethods": [],
+    "thirdPartyPolicy": "Exclude third-party traffic unless separately identified and authorized; use local integration sinks by default.",
+    "syntheticDataPlan": "",
+    "evidenceLocation": "examples/unsafe-checkout.txt",
+    "stopConditions": [],
+    "emergencyContact": "",
+    "cleanupPlan": "",
+    "loadTestApproval": {
+      "approved": false,
+      "reference": "",
+      "approvedBy": "",
+      "approvedAt": null,
+      "healthStopConditions": []
+    },
+    "backups": {
+      "required": false,
+      "rationale": "",
+      "verifiedAt": null,
+      "restorePlan": "",
+      "owner": ""
+    }
+  },
+  "globalBudget": {
+    "maxRequests": 0,
+    "maxRequestsPerSecond": 0,
+    "maxConcurrency": 0,
+    "maxDurationSeconds": 0,
+    "maxRequestBytes": 0,
+    "maxResponseBytes": 0,
+    "maxExternalCost": 0
+  },
+  "coordination": {
+    "singleWriter": "Example coordinator",
+    "revision": 1,
+    "startedAt": null,
+    "deadlineAt": null,
+    "usedRequests": 0,
+    "activeLeases": [],
+    "leaseHistory": [],
+    "stopRequested": false,
+    "stopReason": "",
+    "lastUpdatedAt": "2026-10-29T12:05:00Z"
+  },
+  "tests": [
+    {
+      "id": "EX-001",
+      "category": "Payments",
+      "controlIds": [
+        "PAY-02"
+      ],
+      "activity": "offline_review",
+      "applicability": "Applicable",
+      "targetId": "",
+      "target": "examples/unsafe-checkout.txt",
+      "releaseArtifact": "examples/unsafe-checkout.txt",
+      "owner": "Example-only owner",
+      "assignedAgent": "Example reviewer",
+      "safeMethod": "Inspect the supplied synthetic text only; do not execute it.",
+      "expected": "A return-page visit must not itself mark an order paid.",
+      "status": "Failed",
+      "reason": "Illustrative static finding only; no runtime environment exists.",
+      "approvalReference": "Example-only offline inspection",
+      "leaseId": null,
+      "budget": {
+        "requests": 0,
+        "requestsPerSecond": 0,
+        "concurrency": 0,
+        "seconds": 0
+      },
+      "timestamps": {
+        "plannedAt": "2026-10-29T12:01:00Z",
+        "startedAt": "2026-10-29T12:02:00Z",
+        "finishedAt": "2026-10-29T12:03:00Z",
+        "updatedAt": "2026-10-29T12:05:00Z"
+      },
+      "requestsUsed": 0,
+      "observed": "Line 4 calls orders.markPaid from the client return-page function.",
+      "evidence": [
+        "examples/unsafe-checkout.txt:4; static source observation only"
+      ],
+      "severity": "High",
+      "remediation": {
+        "recommendation": "Remove the markPaid call from the return handler. Provider-handler changes remain conditional until inspected.",
+        "basis": "Inspected code",
+        "codeReferences": [
+          "examples/unsafe-checkout.txt:4"
+        ],
+        "owner": "Example-only owner",
+        "fixArtifact": ""
+      },
+      "retest": {
+        "status": "Not run",
+        "testIds": [],
+        "releaseArtifact": "",
+        "evidence": [],
+        "remainingRisk": "No runtime fix or retest was performed; do not claim release readiness."
+      }
+    },
+    {
+      "id": "EX-002",
+      "category": "Authorization and tenant isolation",
+      "controlIds": [
+        "AZ-02"
+      ],
+      "activity": "active_test",
+      "applicability": "Applicable",
+      "targetId": "",
+      "target": "",
+      "releaseArtifact": "examples/unsafe-checkout.txt",
+      "owner": "Example-only owner",
+      "assignedAgent": "Example reviewer",
+      "safeMethod": "Create resources owned by two test users. As each identity, substitute the other's identifier in path, query, body and nested/batch inputs for read, update, delete, download and workflow actions. Test one permitted and one denied object per path.",
+      "expected": "The server authorizes the actual object/action for the current caller on every access. Unpredictable IDs are not the defense; denial returns no private fields and causes no unauthorized state change.",
+      "status": "Blocked",
+      "reason": "No approved target, test identities, runtime or state visibility.",
+      "approvalReference": "",
+      "leaseId": null,
+      "budget": {
+        "requests": 0,
+        "requestsPerSecond": 0,
+        "concurrency": 0,
+        "seconds": 0
+      },
+      "timestamps": {
+        "plannedAt": "2026-10-29T12:01:00Z",
+        "startedAt": null,
+        "finishedAt": null,
+        "updatedAt": "2026-10-29T12:05:00Z"
+      },
+      "requestsUsed": 0,
+      "observed": "",
+      "evidence": [],
+      "severity": "Unassessed",
+      "remediation": {
+        "recommendation": "",
+        "basis": "Uninspected",
+        "codeReferences": [],
+        "owner": "",
+        "fixArtifact": ""
+      },
+      "retest": {
+        "status": "Not run",
+        "testIds": [],
+        "releaseArtifact": "",
+        "evidence": [],
+        "remainingRisk": ""
+      }
+    },
+    {
+      "id": "EX-003",
+      "category": "Abuse and availability",
+      "controlIds": [
+        "ABUSE-03"
+      ],
+      "activity": "load_test",
+      "applicability": "Applicable",
+      "targetId": "",
+      "target": "",
+      "releaseArtifact": "examples/unsafe-checkout.txt",
+      "owner": "Example-only owner",
+      "assignedAgent": "Example reviewer",
+      "safeMethod": "Inspect body/header limits, parser depth and operation deadlines; use reduced thresholds and short synthetic worst-case inputs under a strict local time budget.",
+      "expected": "Each expensive stage has effective bounds or isolation; timeout/cancellation releases resources; one request cannot monopolize the worker/event loop.",
+      "status": "Skipped",
+      "reason": "No separate isolated load approval, health budget or recovery arrangements; no traffic attempted.",
+      "approvalReference": "",
+      "leaseId": null,
+      "budget": {
+        "requests": 0,
+        "requestsPerSecond": 0,
+        "concurrency": 0,
+        "seconds": 0
+      },
+      "timestamps": {
+        "plannedAt": "2026-10-29T12:01:00Z",
+        "startedAt": null,
+        "finishedAt": null,
+        "updatedAt": "2026-10-29T12:05:00Z"
+      },
+      "requestsUsed": 0,
+      "observed": "",
+      "evidence": [],
+      "severity": "Unassessed",
+      "remediation": {
+        "recommendation": "",
+        "basis": "Uninspected",
+        "codeReferences": [],
+        "owner": "",
+        "fixArtifact": ""
+      },
+      "retest": {
+        "status": "Not run",
+        "testIds": [],
+        "releaseArtifact": "",
+        "evidence": [],
+        "remainingRisk": ""
+      }
+    },
+    {
+      "id": "EX-004",
+      "category": "Authentication and sessions",
+      "controlIds": [
+        "AUTH-04"
+      ],
+      "activity": "active_test",
+      "applicability": "Applicable",
+      "targetId": "",
+      "target": "",
+      "releaseArtifact": "examples/unsafe-checkout.txt",
+      "owner": "Example-only owner",
+      "assignedAgent": "Example reviewer",
+      "safeMethod": "Compare a small authorized sample of existing/nonexistent synthetic accounts for body, status and timing differences. Inspect per-account and network/device throttling, lockout recovery and bypass routes; use configured low test thresholds rather than guessing real accounts.",
+      "expected": "Responses do not unnecessarily disclose account existence. Server-side limits apply across equivalent endpoints without allowing a trivial permanent victim lockout; recovery and alerting are available. CAPTCHA alone is not the control.",
+      "status": "Not run",
+      "reason": "Active decision is No; no synthetic-account attempt cap or target approved.",
+      "approvalReference": "",
+      "leaseId": null,
+      "budget": {
+        "requests": 0,
+        "requestsPerSecond": 0,
+        "concurrency": 0,
+        "seconds": 0
+      },
+      "timestamps": {
+        "plannedAt": "2026-10-29T12:01:00Z",
+        "startedAt": null,
+        "finishedAt": null,
+        "updatedAt": "2026-10-29T12:05:00Z"
+      },
+      "requestsUsed": 0,
+      "observed": "",
+      "evidence": [],
+      "severity": "Unassessed",
+      "remediation": {
+        "recommendation": "",
+        "basis": "Uninspected",
+        "codeReferences": [],
+        "owner": "",
+        "fixArtifact": ""
+      },
+      "retest": {
+        "status": "Not run",
+        "testIds": [],
+        "releaseArtifact": "",
+        "evidence": [],
+        "remainingRisk": ""
+      }
+    }
+  ]
+}
